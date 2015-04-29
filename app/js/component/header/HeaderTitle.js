@@ -9,13 +9,13 @@ HeaderTitle = React.createClass({
         this.context.router.transitionTo('/products');
     },
 
-	render: function(){
-		return (
+    render: function () {
+        return (
             <div
                 className="title fl"
                 onClick={this._onTitleClick}>G-Shop</div>
-		)
-	}
+        )
+    }
 });
 
 module.exports = HeaderTitle;

@@ -1,13 +1,13 @@
 var $ = require('jquery'),
     loaderActions = {
-    toggle: function () {
+        toggle: function () {
 
-    }
-};
+        }
+    };
 var ajax = {
 
     send: function (params) {
-        var _loaderState ='';
+        var _loaderState = '';
 
         loaderActions.toggle(_loaderState);
         $.ajax({

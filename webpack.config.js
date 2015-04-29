@@ -2,6 +2,12 @@
 var webpack = require('webpack');
 var bower_dir = __dirname + '/bower_components';
 
+function getEntryApp() {
+    return process.env.NODE_ENV === 'production' ?
+        ['./app/js/main.js'] :
+        ['webpack/hot/dev-server', './app/js/main.js'];
+}
+
 var config = {
     addVendor: function (name, path) {
         this.resolve.alias[name] = path;
@@ -9,8 +15,8 @@ var config = {
     },
 
     entry: {
-        app: ['webpack/hot/dev-server', './app/js/main.js'],
-        vendors: ['react', 'react-router']
+        app: getEntryApp(),
+        vendors: ['react', 'react-router', 'jquery']
     },
     resolve: {
         alias: {
@@ -37,11 +43,11 @@ var config = {
                 loader: "style-loader!css-loader!sass-loader"
             }
         ]
-    },
-
-    devServer: {
-        headers: { "Access-Control-Allow-Origin": "*" }
     }
+
+    /*devServer: {
+     headers: { "Access-Control-Allow-Origin": "*" }
+     }*/
 };
 
 config.addVendor('react', bower_dir + '/react/react.js');

@@ -3,94 +3,101 @@ var EventEmitter = require('events').EventEmitter;
 var AppConst = require('../common/AppConst');
 var assign = require('object-assign');
 
+/* todo move here functionality from ProductService */
+
 var CHANGE_EVENT = 'change';
 
 var _store = {
     phones: [
 
-    {
-        id: 'iphone4s',
-        name: 'iPhone 4s',
-        data: {
-            price: 400,
-            quantity: 3,
-            discountInPercent: 15
+        {
+            id: 'iphone4s',
+            data: {
+                name: 'iPhone 4s',
+                price: 400,
+                quantity: 3,
+                discountInPercent: 15
+            }
+        },
+        {
+            id: 'iphone5',
+            data: {
+                name: 'iPhone 5',
+                price: 500,
+                quantity: 30,
+                discountInPercent: 5
+            }
+        },
+        {
+            id: 'iphone5s',
+            data: {
+                name: 'iPhone 5s',
+                price: 600,
+                quantity: 10,
+                discountInPercent: 5
+            }
+        },
+        {
+            id: 'iphone6',
+            data: {
+                name: 'iPhone 6',
+                price: 700,
+                quantity: 14,
+                discountInPercent: 5
+            }
+        },
+        {
+            id: 'iphone6plus',
+            data: {
+                name: 'iPhone 6 Plus',
+                price: 800,
+                quantity: 4,
+                discountInPercent: 10
+            }
         }
-    },
-    {
-        id: 'iphone5',
-        name: 'iPhone 5',
-        data: {
-            price: 500,
-            quantity: 30,
-            discountInPercent: 5
-        }
-    },
-    {
-        id: 'iphone5s',
-        name: 'iPhone 5s',
-        data: {
-            price: 600,
-            quantity: 10,
-            discountInPercent: 5
-        }
-    },
-    {
-        id: 'iphone6',
-        name: 'iPhone 6',
-        data: {
-            price: 700,
-            quantity: 14,
-            discountInPercent: 5
-        }
-    },
-    {
-        id: 'iphone6plus',
-        name: 'iPhone 6 Plus',
-        data: {
-            price: 800,
-            quantity: 4,
-            discountInPercent: 10
-        }
-    }
-],
+    ],
     clothes: [
 
         {
-            name: 'Jeans',
+            id: 'jeans',
             data: {
+                name: 'Jeans',
                 price: 100,
                 quantity: 34,
                 discountInPercent: 15
             }
         },
         {
-            name: 'Skirt',
+            id: 'skirt',
             data: {
+                name: 'Skirt',
                 price: 50,
                 quantity: 34,
                 discountInPercent: 5
             }
         },
         {
-            name: 'T-Shot',
+            id: 'tshort',
             data: {
+                name: 'T-Short',
                 price: 60,
                 quantity: 34,
                 discountInPercent: 5
             }
         },
         {
-            name: 'Gloves',
+            id: 'gloves',
             data: {
+                name: 'Gloves',
                 price: 70,
                 quantity: 34,
                 discountInPercent: 5
             }
         },
         {
-            name: 'Hat',
+            id: 'hat',
             data: {
+                name: 'Hat',
                 price: 80,
                 quantity: 34,
                 discountInPercent: 10
@@ -118,7 +125,7 @@ var ShopStore = assign({}, EventEmitter.prototype, {
         for (var prod in _store) {
             if (_store.hasOwnProperty(prod)) {
                 _store[prod].every(function (item) {
-                    if(item.id === identifier){
+                    if (item.id === identifier) {
                         result = item;
                         return false;
                     }
@@ -127,5 +134,21 @@ var ShopStore = assign({}, EventEmitter.prototype, {
             }
         }
         return result;
+    },
+
+    changeQuantityForProduct: function (action) {
+        var result = false;
+        _store[action.category].forEach(function (product) {
+            if (product.identifier === action.identifier &&
+                product.data.quantity - action.quantity >= 0) {
+                product.data.quantity -= action.quantity;
+                result = true;
+                return false;
+            } else {
+                return true;
+            }
+        });
+        return result
     }
+
 });

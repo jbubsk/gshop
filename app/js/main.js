@@ -6,6 +6,7 @@ function initApp() {
 }
 initApp();
 
+/*
 if (module.hot) {
     module.hot.accept(initApp);
-}
+}*/
