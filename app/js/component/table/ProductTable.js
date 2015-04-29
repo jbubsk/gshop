@@ -2,7 +2,7 @@ var React = require('react'),
     Router = require('react-router'),
     Navigation = Router.Navigation,
     RouteHandler = Router.RouteHandler,
-    ProductService = require('../../services/ProductService'),
+    ShopStore = require('../../stores/ShopStore'),
     BasketStore = require('../../stores/BasketStore'),
     Table = require('./Table'),
     TableHeader = require('./TableHeader'),
@@ -31,9 +31,9 @@ PostsList = React.createClass({
         }
 
         if (category === 'phones') {
-            ProductService.getPhones(update.bind(this));
+            ShopStore.getPhones(update.bind(this));
         } else if (category === 'clothes') {
-            ProductService.getClothes(update.bind(this));
+            ShopStore.getClothes(update.bind(this));
         }
     },
 

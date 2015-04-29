@@ -136,6 +136,55 @@ var ShopStore = assign({}, EventEmitter.prototype, {
         return result;
     },
 
+    getClothesById: function (id) {
+        var product = null;
+        _store.clothes.every(function (item) {
+            if (item.id === id) {
+                product = item.data;
+                return false;
+            }
+            return true;
+        });
+        return product;
+    },
+
+    getPhoneById: function (id) {
+        var product = null;
+        _store.phones.every(function (item) {
+            if (item.id === id) {
+                product = item.data;
+                return false;
+            }
+            return true;
+        });
+        return product;
+    },
+
+    getClothes: function (callback) {
+
+        /*    ajax.send({
+         success: function (data) {
+         callback(null, data);
+         },
+         error: function (error) {
+         callback(error, null);
+         }
+         });*/
+        callback(null, _store.clothes);
+    },
+    getPhones: function (callback) {
+
+        /*    ajax.send({
+         success: function (data) {
+         callback(null, data);
+         },
+         error: function (error) {
+         callback(error, null);
+         }
+         });*/
+        callback(null, _store.phones);
+    },
+
     changeQuantityForProduct: function (action) {
         var result = false;
         _store[action.category].forEach(function (product) {
@@ -152,3 +201,5 @@ var ShopStore = assign({}, EventEmitter.prototype, {
     }
 
 });
+
+module.exports = ShopStore;

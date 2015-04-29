@@ -1,7 +1,7 @@
 var AppDispatcher = require('../common/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var AppConst = require('../common/AppConst');
-var ProductService = require('../services/ProductService');
+var ShopStore = require('../stores/ShopStore');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
@@ -11,10 +11,10 @@ var _basket = {};
 function addProductToBasket(action) {
     var product;
     if (action.category === 'phones') {
-        product = ProductService.getPhoneById(action.identifier);
+        product = ShopStore.getPhoneById(action.identifier);
     }
     if (action.category === 'clothes') {
-        product = ProductService.getClothesById(action.identifier);
+        product = ShopStore.getClothesById(action.identifier);
     }
     _basket[action.identifier] = {
         name: product.name,

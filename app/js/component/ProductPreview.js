@@ -1,6 +1,6 @@
 var React = require('react'),
     Navigation = require('react-router').Navigation,
-    ProductService = require('../services/ProductService'),
+    ShopStore = require('../stores/ShopStore'),
     AppConst = require('../common/AppConst'),
     ProductPreview;
 
@@ -13,9 +13,9 @@ ProductPreview = React.createClass({
             product;
 
         if (category === 'phones') {
-            product = ProductService.getPhoneById(identifier);
+            product = ShopStore.getPhoneById(identifier);
         } else if (category === 'clothes') {
-            product = ProductService.getClothesById(identifier);
+            product = ShopStore.getClothesById(identifier);
         }
 
         return (
