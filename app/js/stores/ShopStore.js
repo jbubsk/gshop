@@ -120,23 +120,29 @@ var ShopStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);
     },
 
-    getProduct: function (identifier) {
+    getProduct: function (params) {
         var result;
-        for (var prod in _store) {
-            if (_store.hasOwnProperty(prod)) {
-                _store[prod].every(function (item) {
-                    if (item.id === identifier) {
-                        result = item;
-                        return false;
-                    }
-                    return true;
-                });
+        if (params.category === 'phones') {
+            result = ShopStore.getPhoneById(params.id);
+        } else if (params.category === 'clothes') {
+            result = ShopStore.getClotheById(params.id);
+        } else {
+            for (var prod in _store) {
+                if (_store.hasOwnProperty(prod)) {
+                    _store[prod].every(function (item) {
+                        if (item.id === params) {
+                            result = item.data;
+                            return false;
+                        }
+                        return true;
+                    });
+                }
             }
         }
         return result;
     },
 
-    getClothesById: function (id) {
+    getClotheById: function (id) {
         var product = null;
         _store.clothes.every(function (item) {
             if (item.id === id) {
@@ -158,6 +164,10 @@ var ShopStore = assign({}, EventEmitter.prototype, {
             return true;
         });
         return product;
+    },
+
+    canBeQuantityIncreased: function (id) {
+        return ShopStore.getProduct(id).quantity > 0;
     },
 
     getClothes: function (callback) {
@@ -185,12 +195,16 @@ var ShopStore = assign({}, EventEmitter.prototype, {
         callback(null, _store.phones);
     },
 
-    changeQuantityForProduct: function (action) {
+    changeQuantityForProduct: function (payload) {
         var result = false;
-        _store[action.category].forEach(function (product) {
-            if (product.identifier === action.identifier &&
-                product.data.quantity - action.quantity >= 0) {
-                product.data.quantity -= action.quantity;
+
+        _store[payload.action.category].forEach(function (product) {
+            if (product.id === payload.action.id) {
+                if (payload.action.action === 'plus') {
+                    product.data.quantity--;
+                } else {
+                    product.data.quantity++;
+                }
                 result = true;
                 return false;
             } else {
@@ -200,6 +214,19 @@ var ShopStore = assign({}, EventEmitter.prototype, {
         return result
     }
 
+});
+
+ShopStore.dispatchToken = AppDispatcher.register(function (payload) {
+    switch (payload.type) {
+        case AppConst.CHANGE_QUANTITY:
+            if (ShopStore.changeQuantityForProduct(payload)) {
+                var BasketStore = require('./BasketStore');
+                BasketStore.changeQuantityForProduct(payload.action);
+                BasketStore.emitChange();
+                ShopStore.emitChange();
+            }
+            break;
+    }
 });
 
 module.exports = ShopStore;

@@ -89,9 +89,6 @@ body {
   border-bottom: 1px dotted grey;
 }
 
-.title-q {
-}
-
 hr {
   margin-left: -20px;
   margin-right: -20px;
@@ -131,6 +128,7 @@ hr {
 .close {
   margin-top: 10px;
 }
+
 .close span {
   display: inline-block;
   height: 20px;
@@ -222,10 +220,39 @@ hr {
   }
 }
 
-input[type=number] {
-  width: 40px;
-  border-radius: 2px;
-  border: 1px solid #c6c6c6;
+.q-value {
+  width: 15px;
+  text-align: right;
+}
+
+.q-actions {
+  margin-top: -5px;
+  margin-left: 5px;
+}
+
+.q-actions :first-child {
+  margin-bottom: 1px;
+}
+
+.action {
+  font-weight: bold;
+  width: 10px;
+  height: 10px;
+
+  img {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.plus {
+  @extend .action;
+  color: #008000;
+}
+
+.minus {
+  @extend .action;
+  color: red;
 }
 
 .row-header {

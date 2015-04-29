@@ -51,7 +51,7 @@ var config = {
 };
 
 config.addVendor('react', bower_dir + '/react/react.js');
-config.addVendor('react-router', bower_dir + '/react-router/build/global/ReactRouter.js');
+config.addVendor('react-router', bower_dir + '/react-router/build/umd/ReactRouter.js');
 config.addVendor('jquery', bower_dir + '/jquery/dist/jquery.js');
 
 module.exports = config;

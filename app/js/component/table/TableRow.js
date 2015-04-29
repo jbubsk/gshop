@@ -1,12 +1,17 @@
 var React = require('react'),
     Navigation = require('react-router').Navigation,
-    BasketAction = require('../../actions/BasketActions'),
     DescriptionCell = require('./DescriptionCell'),
     QuantityCell = require('./QuantityCell'),
     TotalCell = require('./TotalCell'),
     TableRow;
 
 TableRow = React.createClass({
+    getInitialState: function () {
+        return {
+            storeProduct: {}
+        }
+    },
+
     mixins: [Navigation],
 
     _onRowClick: function () {
@@ -16,6 +21,9 @@ TableRow = React.createClass({
         this.context.router.transitionTo('product', params);
     },
 
+    componentDidMount: function () {
+
+    },
     render: function () {
         var className = 'row row-positioning ' + this.props.className;
 
@@ -28,7 +36,9 @@ TableRow = React.createClass({
                 className={className}
                 onClick={this._onRowClick}>
 
-                <DescriptionCell data={this.props.product.data}/>
+                <DescriptionCell
+                    category={this.props.category}
+                    id={this.props.product.id}/>
 
                 <TotalCell id={this.props.product.id}/>
 

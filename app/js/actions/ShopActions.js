@@ -1,13 +1,12 @@
-var ShopStore = require('../stores/ShopStore');
-var BasketStore = require('../stores/BasketStore');
-var BasketConst = require('../common/AppConst');
+var AppDispatcher = require('../common/AppDispatcher');
+var AppConst = require('../common/AppConst');
 
 var ShopActions = {
-    changeQuantity: function (quantity) {
-        BasketStore.emit(BasketConst.CHANGE_QUANTITY, quantity);
-    },
-    buy: function () {
-        BasketStore.emit(BasketConst.BUY);
+    changeQuantity: function (action) {
+         return AppDispatcher.dispatch({
+            type: AppConst.CHANGE_QUANTITY,
+            action: action
+        });
     }
 };
 

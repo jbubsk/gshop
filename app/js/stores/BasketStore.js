@@ -1,7 +1,7 @@
 var AppDispatcher = require('../common/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
+var ShopStore = require('./ShopStore');
 var AppConst = require('../common/AppConst');
-var ShopStore = require('../stores/ShopStore');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
@@ -11,12 +11,12 @@ var _basket = {};
 function addProductToBasket(action) {
     var product;
     if (action.category === 'phones') {
-        product = ShopStore.getPhoneById(action.identifier);
+        product = ShopStore.getPhoneById(action.id);
     }
     if (action.category === 'clothes') {
-        product = ShopStore.getClothesById(action.identifier);
+        product = ShopStore.getClotheById(action.id);
     }
-    _basket[action.identifier] = {
+    _basket[action.id] = {
         name: product.name,
         price: product.price,
         category: action.category,
@@ -89,23 +89,27 @@ var BasketStore = assign({}, EventEmitter.prototype, {
     },
 
     changeQuantityForProduct: function (action) {
-        if (!_basket[action.identifier]) {
+        if (!_basket[action.id]) {
             addProductToBasket(action);
         }
         if (action.quantity === 0) {
-            delete _basket[action.identifier];
+            delete _basket[action.id];
         } else {
-            _basket[action.identifier].quantity = action.quantity;
-            evaluateTotal(action.identifier);
+
+            if (action.action === 'plus') {
+                _basket[action.id].quantity++;
+            } else {
+                _basket[action.id].quantity--;
+            }
+            evaluateTotal(action.id);
         }
     }
 });
 
-BasketStore.dispatchToken = AppDispatcher.register(function (action) {
-    switch (action.type) {
-        case AppConst.CHANGE_QUANTITY:
-            BasketStore.changeQuantityForProduct(action);
-            BasketStore.emitChange();
+BasketStore.dispatchToken = AppDispatcher.register(function (payload) {
+    switch (payload.type) {
+        case AppConst.BUY:
+            /* todo purchase imitation */
             break;
     }
 });

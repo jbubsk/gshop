@@ -1,0 +1,14 @@
+{
+  "name": "gshop",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jbubsk/gshop",
+  "authors": [
+    "Mikhail Zheludev <develojbu@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "react": "~0.13.2",
+    "react-router": "~0.13.3",
+    "jquery": "~2.1.4"
+  }
+}

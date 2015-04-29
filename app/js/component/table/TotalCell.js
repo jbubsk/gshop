@@ -1,23 +1,19 @@
 var React = require('react'),
     BasketStore = require('../../stores/BasketStore'),
-	TotalCell;
+    TotalCell;
 
 TotalCell = React.createClass({
     getInitialState: function () {
+        var basketItem = BasketStore.getBasketItem(this.props.id);
         return {
-            total: 0
+            total: basketItem ? basketItem.total : 0
         }
     },
 
     componentDidMount: function () {
-        var basketItem = BasketStore.getBasketItem(this.props.id);
-
         BasketStore.addChangeListener(this.updateTotal);
-        this.setState({
-                total: basketItem ? basketItem.total : 0
-            }
-        )
     },
+
     componentWillUnmount: function () {
         BasketStore.removeChangeListener(this.updateTotal);
     },
@@ -28,13 +24,13 @@ TotalCell = React.createClass({
         });
     },
 
-	render: function(){
-		return (
+    render: function () {
+        return (
             <div className="total cell fr">
                 <span>{this.state.total > 0 ? '$ ' + this.state.total : ''}</span>
             </div>
-		)
-	}
+        )
+    }
 });
 
 module.exports = TotalCell;

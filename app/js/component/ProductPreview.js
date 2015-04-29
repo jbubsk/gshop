@@ -15,7 +15,7 @@ ProductPreview = React.createClass({
         if (category === 'phones') {
             product = ShopStore.getPhoneById(identifier);
         } else if (category === 'clothes') {
-            product = ShopStore.getClothesById(identifier);
+            product = ShopStore.getClotheById(identifier);
         }
 
         return (
