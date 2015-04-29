@@ -1,0 +1,31 @@
+{
+  "name": "gshop",
+  "version": "0.0.1",
+  "description": "Useful activity from Habrahabr ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval -hot --progress --colors --content-base build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "NODE_ENV=production webpack --optimize-minimize"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Mikhail Zheludev",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^0.10.1",
+    "es6-promise": "^2.1.0",
+    "extract-text-webpack-plugin": "^0.5.0",
+    "feed-read": "0.0.1",
+    "flux": "^2.0.1",
+    "html-loader": "^0.2.3",
+    "jsx-loader": "^0.13.1",
+    "node-sass": "^2.1.1",
+    "object-assign": "^2.0.0",
+    "sass-loader": "^0.6.0",
+    "style-loader": "^0.10.2",
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.8.0"
+  }
+}

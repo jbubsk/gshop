@@ -1,0 +1,291 @@
+$color: red;
+$header-height: 40px;
+$header-color: #353646;
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  position: fixed;
+  height: $header-height;
+  width: 100%;
+  background: $header-color;
+  z-index: 100;
+}
+
+.header-content {
+  position: relative;
+
+  .title {
+    margin: 10px 40px;
+    font-weight: 100;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+/* ****************** BASKET ****************** */
+
+#basket-widget {
+  background: #e7e9f4;
+  height: $header-height;
+  width: 100px;
+  border-right: 30px solid $header-color;
+  padding: 0 5px;
+  cursor: pointer;
+
+  .total {
+    margin-top: 12px;
+    font-weight: 100;
+    font-size: 16px;
+  }
+}
+
+#basket-header {
+  width: 40px;
+  height: 40px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#basket-view {
+  margin-left: -100px;
+  background: #e7e9f4;
+  border-left: 1px solid $header-color;
+  border-bottom: 1px solid $header-color;
+  border-bottom-left-radius: 5px;
+}
+
+#basket-content {
+  padding: 20px 20px 0;
+}
+
+#basket-list {
+  min-height: 100px;
+  max-height: 150px;
+  overflow: scroll;
+}
+
+.basket-row {
+  height: 25px;
+  margin-top: 3px;
+  border-bottom: 1px dotted grey;
+}
+
+.title-q {
+}
+
+hr {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.basket-title {
+  display: inline-block;
+  color: green;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.basket-quantity {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.basket-total-row {
+  padding-top: 3px;
+  color: #680000;
+  font-weight: bold;
+
+  span {
+    float: right;
+    display: block;
+    width: 60px;
+    text-align: right;
+  }
+}
+
+.basket-total {
+  width: 100%;
+  color: #931804;
+  text-align: right;
+}
+
+.close span {
+  display: inline-block;
+  height: 20px;
+  width: 95%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5%;
+  background: $header-color;
+  color: white;
+  text-align: right;
+  cursor: pointer;
+  z-index: 600;
+}
+
+/* ****************** MENU NAVIG ****************** */
+
+.menu-navig {
+  margin: 100px 0 0 20px;
+  height: auto;
+  padding: 50px 20px;
+  border-right: 1px solid #e7e9f4;
+  text-decoration: none;
+  a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #000000;
+  }
+}
+
+.active {
+  background: #415f8c;
+  text-decoration: none;
+  cursor: default;
+  color: white !important;
+}
+
+/* ****************** TABLE ****************** */
+
+#content {
+  position: fixed;
+  margin: $header-height 0;
+}
+
+.table-wrapper {
+  margin: 100px 50px;
+}
+
+.table {
+  min-width: 500px;
+}
+
+.row {
+  padding: 10px 0;
+  height: 40px;
+  border-bottom: 1px solid #acacac;
+  cursor: pointer;
+}
+
+.selected {
+  background: rgba(114, 167, 246, 0.55);
+}
+
+.row.last {
+  margin-bottom: 0;
+}
+
+.row-positioning {
+  .description {
+    width: 200px;
+    margin-left: 10px;
+  }
+
+  .price {
+    width: 50px;
+    margin-right: 80px;
+    text-align: center;
+  }
+
+  .quantity {
+    width: 80px;
+  }
+
+  .total {
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+    margin-right: 10px;
+  }
+}
+
+input[type=number] {
+  width: 40px;
+  border-radius: 2px;
+  border: 1px solid #c6c6c6;
+}
+
+.row-header {
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 5px;
+}
+
+.cell {
+  margin-top: 5px;
+}
+
+.availability {
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.availability.red {
+  color: red;
+}
+
+.availability.green {
+  color: green;
+}
+
+.row-total {
+  background: #bbf466;
+
+  padding: 10px 0;
+  .cell {
+    font-weight: bold;
+  }
+}
+
+/* ****************** PREVIEW ****************** */
+
+.preview .picture {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.preview {
+  margin: 100px 10px;
+
+  .title {
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 25px;
+  }
+}
+
+.preview .details {
+  width: 300px;
+  height: 200px;
+
+  border: 1px solid rgba(201, 226, 234, 0.31);
+  padding: 20px;
+  margin: 10px 0;
+  z-index: -5;
+}
+
+.picture img {
+  width: 100px;
+  height: 100px;
+}
