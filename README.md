@@ -1,5 +1,6 @@
 # G-Shop
-Sample of shop activity. All data are presented as stub.
+Imitation of shop activity. All data are presented as stub.
+View basket by clicking on it in the page header.
 
 Technologies: HTML, CSS, JavaScript.
 
