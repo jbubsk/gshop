@@ -46,7 +46,7 @@ TableRow = React.createClass({
                     category={this.props.category}
                     id={this.props.product.id}/>
 
-                <div className="price cell fr">
+                <div className="price cell fl">
                     <div>$ {this.props.product.data.price}</div>
                 </div>
                 <div className="clear"></div>

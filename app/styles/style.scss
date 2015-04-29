@@ -203,13 +203,13 @@ hr {
   }
 
   .price {
-    width: 50px;
-    margin-right: 80px;
+    width: 130px;
     text-align: center;
   }
 
   .quantity {
     width: 80px;
+    text-align: right;
   }
 
   .total {
@@ -220,39 +220,44 @@ hr {
   }
 }
 
+.widget.quantity {
+  margin-top: 8px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 50px;
+}
+
 .q-value {
-  width: 15px;
-  text-align: right;
+  width: 22px;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 2px;
+  line-height: 10px;
+  background: #f5f5f5;
 }
 
-.q-actions {
-  margin-top: -5px;
-  margin-left: 5px;
-}
-
-.q-actions :first-child {
-  margin-bottom: 1px;
-}
-
-.action {
-  font-weight: bold;
-  width: 10px;
-  height: 10px;
-
-  img {
-    width: 10px;
-    height: 10px;
-  }
+.actions {
+  margin-top: -1px;
 }
 
 .plus {
-  @extend .action;
-  color: #008000;
+  @extend .actions;
+  border-left: 1px solid grey;
 }
 
 .minus {
-  @extend .action;
-  color: red;
+  @extend .actions;
+  border-right: 1px solid grey;
+}
+
+.action {
+  width: 13px;
+  height: 13px;
+
+  img {
+    width: 13px;
+    height: 13px;
+  }
 }
 
 .row-header {
