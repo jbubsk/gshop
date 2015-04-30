@@ -11,15 +11,11 @@ PageContent = React.createClass({
         return (
             <div>
                 <div id="content">
-                    <div id="page-content">
-                        <div className="fl">
-                            <MenuNavig/>
-                        </div>
-                        <div className="fl">
-                            <RouteHandler/>
-                        </div>
-                        <div className="clear"></div>
+                    <MenuNavig/>
+                    <div id="page-content" className="fl">
+                        <RouteHandler/>
                     </div>
+                    <div className="clear"></div>
                 </div>
             </div>
         )
