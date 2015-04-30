@@ -1,6 +1,7 @@
 $color: red;
 $header-height: 40px;
 $header-color: #3e3e60;
+$footer-height: 50px;
 
 @media screen and (min-width: 1100px) {
   .menu-navig {
@@ -21,9 +22,6 @@ $header-color: #3e3e60;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-  #page-content {
-    margin-top: 100px;
-  }
 }
 
 @media screen and (max-width: 1099px) {
@@ -38,13 +36,11 @@ $header-color: #3e3e60;
       border-bottom-right-radius: 5px;
     }
   }
-
-  #page-content {
-    margin-top: 70px;
-  }
 }
 
-body {
+html, body , #application{
+  font-family: Helvetica Neue, Helvetica, Arial;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -60,6 +56,16 @@ body {
 .clear {
   clear: both;
 }
+
+#footer {
+  height: $footer-height;
+  background: rgba(62, 62, 96, 0.65);
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ****************** HEADER ****************** */
 
 #header {
   position: fixed;
@@ -81,6 +87,20 @@ body {
   }
 }
 
+/* ****************** CONTENT ****************** */
+
+#content {
+  min-height: 100%;
+  top: $header-height;
+  margin-bottom: -$footer-height;
+}
+
+#page-content {
+  width: 970px;
+  margin-top: 100px;
+  overflow-x: scroll;
+}
+
 /* ****************** BASKET ****************** */
 
 #basket-widget {
@@ -93,7 +113,7 @@ body {
 
   .total {
     margin-top: 12px;
-    font-weight: 100;
+    font-weight: 200;
     font-size: 16px;
   }
 }
@@ -108,6 +128,7 @@ body {
 }
 
 #basket-view {
+  font-weight: 200;
   margin-left: -100px;
   background: #e7e9f4;
   border-left: 1px solid $header-color;
@@ -181,6 +202,7 @@ hr {
   background: $header-color;
   color: white;
   text-align: right;
+  font-weight: 100;
   cursor: pointer;
   z-index: 600;
 }
@@ -198,22 +220,11 @@ hr {
 }
 
 .active {
+  font-weight: 200;
   background: $header-color;
   text-decoration: none;
   cursor: default;
   color: white !important;
-}
-
-/* ****************** CONTENT ****************** */
-
-#content {
-  position: relative;
-  top: $header-height;
-}
-
-#page-content {
-  width: 970px;
-  overflow-x: scroll;
 }
 
 /* ****************** TABLE ****************** */
@@ -312,10 +323,11 @@ hr {
 
 .cell {
   margin-top: 5px;
+  font-weight: 200;
 }
 
 .availability {
-  font-weight: bold;
+  font-weight: 200;
   font-size: 12px;
   margin-left: 20px;
 }

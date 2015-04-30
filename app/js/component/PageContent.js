@@ -9,14 +9,12 @@ var React = require('react'),
 PageContent = React.createClass({
     render: function () {
         return (
-            <div>
-                <div id="content">
-                    <MenuNavig/>
-                    <div id="page-content" className="fl">
-                        <RouteHandler/>
-                    </div>
-                    <div className="clear"></div>
+            <div id="content">
+                <MenuNavig/>
+                <div id="page-content" className="fl">
+                    <RouteHandler/>
                 </div>
+                <div className="clear"></div>
             </div>
         )
     }

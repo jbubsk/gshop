@@ -14,7 +14,7 @@ BasketView = React.createClass({
             total = BasketStore.getTotal(),
             styles = {display: this.props.showBasket ? 'block' : 'none'},
             products = [],
-            content = <div className="empty">You basket is empty.</div>;
+            content = <div className="empty">Your basket is empty.</div>;
 
         for (var id in basket) {
             if (basket.hasOwnProperty(id)) {

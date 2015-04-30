@@ -6,6 +6,7 @@ var React = require('react'),
     NotFoundRoute = Router.NotFoundRoute,
     PageContent = require('./PageContent'),
     PageHeader = require('./header/PageHeader'),
+    PageFooter = require('./Footer'),
     Products = require('./Products'),
     ProductTable = require('./table/ProductTable'),
     ProductPreview = require('./ProductPreview'),
@@ -16,9 +17,10 @@ var React = require('react'),
 App = React.createClass({
     render: function () {
         return (
-            <div>
+            <div id="application">
                 <PageHeader/>
                 <PageContent/>
+                <PageFooter/>
             </div>
         )
     }

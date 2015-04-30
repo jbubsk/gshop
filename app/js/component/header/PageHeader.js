@@ -6,13 +6,11 @@ var React = require('react'),
 PageHeader = React.createClass({
     render: function () {
         return (
-            <div>
-                <div id="header">
-                    <div className="header-content">
-                        <HeaderTile/>
-                        <BasketHeader/>
-                        <div className="clear"></div>
-                    </div>
+            <div id="header">
+                <div className="header-content">
+                    <HeaderTile/>
+                    <BasketHeader/>
+                    <div className="clear"></div>
                 </div>
             </div>
         )
