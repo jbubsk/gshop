@@ -40,7 +40,7 @@ $header-color: #3e3e60;
   }
 
   #page-content {
-    margin-top: 50px;
+    margin-top: 70px;
   }
 }
 
@@ -227,7 +227,7 @@ hr {
 }
 
 .row {
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   height: 40px;
   border-bottom: 1px solid #acacac;
   cursor: pointer;
@@ -266,7 +266,7 @@ hr {
 }
 
 .widget.quantity {
-  margin-top: 8px;
+  margin-top: 7px;
   border: 1px solid grey;
   border-radius: 5px;
   width: 50px;
@@ -275,24 +275,23 @@ hr {
 .q-value {
   width: 22px;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   padding-top: 2px;
-  line-height: 10px;
-  background: #f5f5f5;
+  line-height: 11px;
+  background: #d5dee2;
 }
 
 .actions {
-  margin-top: -1px;
 }
 
 .plus {
   @extend .actions;
-  border-left: 1px solid grey;
+  border-left: 1px dotted grey;
 }
 
 .minus {
   @extend .actions;
-  border-right: 1px solid grey;
+  border-right: 1px dotted grey;
 }
 
 .action {
@@ -300,6 +299,7 @@ hr {
   height: 13px;
 
   img {
+    display: block;
     width: 13px;
     height: 13px;
   }
