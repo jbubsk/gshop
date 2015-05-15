@@ -6,4 +6,6 @@ Technologies: HTML, CSS, JavaScript.
 
 Used libraries: ReactJS with React router.
 
+Build tools: Webpack
+
 http://jbubsk.github.io/gshop/#/products
